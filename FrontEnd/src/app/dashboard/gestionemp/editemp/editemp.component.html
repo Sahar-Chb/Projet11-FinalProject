@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <h1>Update employee</h1>
+
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+
+      <input [(ngModel)]="employee.name" type="text" class="form-control m-2" placeholder="name" [formControl]="name"/>
+        <div *ngIf="name.invalid && (name.touched || name.dirty)">
+          <span *ngIf="name.errors!['required']" class="text-danger ms-2"> Name is required</span><br>
+          <span *ngIf="name.errors!['minlength']" class="text-danger ms-2"> Name min Length 3</span>
+        </div>
+
+
+      <input [(ngModel)]="employee.lastname" type="text" class="form-control m-2" placeholder="lastname" [formControl]="lastname"/>
+        <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+          <span *ngIf="lastname.errors!['required']" class="text-danger ms-2"> Lastname is required</span><br>
+          <span *ngIf="lastname.errors!['minlength']" class="text-danger ms-2"> Lastname min Length 5</span>
+        </div>
+
+
+      <input [(ngModel)]="employee.email" type="text" class="form-control m-2" placeholder="email" [formControl]="email"/>
+        <div *ngIf="email.invalid && (email.touched || email.dirty)">
+          <span *ngIf="email.errors!['required']" class="text-danger ms-2"> Email is required</span>
+        </div>
+
+
+      <input [(ngModel)]="employee.tel" type="text" class="form-control m-2" placeholder="tel" [formControl]="tel"/>
+        <div *ngIf="tel.invalid && (tel.touched || tel.dirty)">
+          <span *ngIf="tel.errors!['required']" class="text-danger ms-2"> Tel is required</span><br>
+          <span *ngIf="tel.errors!['minlength']" class="text-danger ms-2"> Tel min Length 8</span>
+        </div>
+
+
+      <input [(ngModel)]="employee.address" type="text" class="form-control m-2" placeholder="address" [formControl]="address"/>
+        <div *ngIf="address.invalid && (address.touched || address.dirty)">
+          <span *ngIf="address.errors!['required']" class="text-danger ms-2"> Address is required</span>
+        </div>
+
+        
+      <input (change)="selectImage($event)" type="file" class="form-control m-2" />
+
+      <img style="width: 50px; margin-left: 12px;" [src]="'http://127.0.0.1:3000/getimage/'+ employee.image" alt="">
+
+      <select [(ngModel)]="employee.idDep" class="form-select m-2">
+        <option *ngFor="let item of deps" [value]="item._id" >{{item.name}}</option>
+      </select>
+
+      <button class="btn btn-dark form-control m-2" (click)="save()">save</button>
+    </div>
+  </div>
+</div>

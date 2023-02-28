@@ -1,0 +1,53 @@
+<div class="container mt-5">
+
+
+
+  <h1> Update departement </h1>
+
+  <div class="row">
+
+    <div class="col-lg-6 mx-auto">
+
+
+      <input [(ngModel)]="dep.name" type="text" class="form-control m-2" placeholder="name" [formControl]="name">
+        <div *ngIf="name.invalid && (name.touched || name.dirty)">
+          <span *ngIf="name.errors!['required']" class="text-danger ms-2"> Name is required</span><br>
+          <span *ngIf="name.errors!['minlength']" class="text-danger ms-2"> Name min Length 3</span>
+        </div>
+
+
+      <input [(ngModel)]="dep.description" type="text" class="form-control m-2" placeholder="description" [formControl]="description">
+        <div *ngIf="description.invalid && (description.touched || description.dirty)">
+          <span *ngIf="description.errors!['required']" class="text-danger ms-2"> Description is required</span><br>
+          <span *ngIf="description.errors!['minlength']" class="text-danger ms-2"> Description min Length 5</span><br>
+          <span *ngIf="description.errors!['maxlength']" class="text-danger ms-2"> Description max Length 30</span>
+        </div>
+
+
+      <input [(ngModel)]="dep.etage" type="text" class="form-control m-2" placeholder="etage" [formControl]="etage">
+        <div *ngIf="etage.invalid && (etage.touched || etage.dirty)">
+          <span *ngIf="etage.errors!['required']" class="text-danger ms-2"> Etage is required</span><br>
+          <span *ngIf="etage.errors!['min']" class="text-danger ms-2"> Etage min 1</span><br>
+          <span *ngIf="etage.errors!['max']" class="text-danger ms-2"> Etage max 6</span>
+        </div>
+
+
+      <input [(ngModel)]="dep.salle" type="text" class="form-control m-2" placeholder="salle" [formControl]="salle">
+        <div *ngIf="salle.invalid && (salle.touched || salle.dirty)">
+          <span *ngIf="salle.errors!['required']" class="text-danger ms-2"> Salle is required</span><br>
+          <span *ngIf="salle.errors!['min']" class="text-danger ms-2"> Salle min 1</span><br>
+          <span *ngIf="salle.errors!['max']" class="text-danger ms-2"> Salle max 20</span>
+        </div>
+
+
+      <button (click)="update()" class="btn btn-dark form-control m-2"> save </button>
+
+
+    </div>
+
+
+
+  </div>
+
+
+</div>

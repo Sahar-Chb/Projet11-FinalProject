@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>List client</h1>
+    </div>
+
+    <div class="col-lg-2 ms-auto mt-2">
+      <button class="btn btn-dark" routerLink="/dashboard/gestionclient/create">Add</button>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div *ngFor="let item of clients" class="col-lg-3">
+      <div class="card">
+        <img [src]="'http://127.0.0.1:3000/getimage/'+item.image" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">{{item.description}}</p>
+          <hr />
+          <p class="card-text">{{item.entreprise}}</p>
+          <p class="card-text">{{item.titreprojet}}</p>
+        </div>
+
+        <div class="card-foot p-3">
+          <button (click)="delete(item._id)" class="btn btn-danger"> Delete </button>
+          <button class="btn btn-info ms-2" [routerLink]="['/dashboard/gestionclient/update',item._id]">update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

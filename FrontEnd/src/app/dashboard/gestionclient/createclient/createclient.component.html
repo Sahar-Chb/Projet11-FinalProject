@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <h1>Ajout client</h1>
+
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+
+
+      <input [(ngModel)]="client.name" type="text" class="form-control m-2" placeholder="name" [formControl]="name"/>
+      <div *ngIf="name.invalid && (name.touched || name.dirty)">
+        <span *ngIf="name.errors!['required']" class="text-danger ms-2"> Name is required</span><br>
+        <span *ngIf="name.errors!['minlength']"class="text-danger ms-2"> Name min Length 3</span>
+      </div>
+
+      <input [(ngModel)]="client.description" type="text" class="form-control m-2" placeholder="description" [formControl]="description"/>
+      <div *ngIf="description.invalid && (description.touched || description.dirty)">
+        <span *ngIf="description.errors!['required']" class="text-danger ms-2"> Description is required</span><br>
+        <span *ngIf="description.errors!['minlength']" class="text-danger ms-2"> Description min Length 5</span><br>
+        <span *ngIf="description.errors!['maxlength']" class="text-danger ms-2"> Description max Length 30</span>
+      </div>
+
+        
+      <input [(ngModel)]="client.entreprise" type="text" class="form-control m-2" placeholder="entreprise" [formControl]="entreprise"/>
+      <div *ngIf="entreprise.invalid && (entreprise.touched || entreprise.dirty)">
+        <span *ngIf="entreprise.errors!['required']" class="text-danger ms-2"> entreprise is required</span><br>
+        <span *ngIf="entreprise.errors!['minlength']" class="text-danger ms-2"> entreprise min Length 5</span>
+      </div>
+      
+        
+      <input [(ngModel)]="client.titreprojet" type="text" class="form-control m-2" placeholder="titre projet" [formControl]="titreprojet"/>
+      <div *ngIf="titreprojet.invalid && (titreprojet.touched || titreprojet.dirty)">
+        <span *ngIf="titreprojet.errors!['required']" class="text-danger ms-2"> titreprojet is required</span><br>
+        <span *ngIf="titreprojet.errors!['minlength']" class="text-danger ms-2"> titreprojet min Length 5</span>
+      </div>
+
+       
+      <input (change)="select($event)" type="file" class="form-control m-2" />
+
+      <button (click)="save()" type="submit" class="btn btn-dark form-control m-2">Create</button>
+
+    </div>
+  </div>
+</div>
